@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>瞬译 · 帮助与支持</title>
+<link rel="icon" href="icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header>
+    <img src="icon.png" alt="瞬译图标">
+    <div>
+      <h1>瞬译</h1>
+      <p>选中一句，按一下，就懂了。Mac 菜单栏里的随手翻译。</p>
+    </div>
+  </header>
+  <nav><a href="./">帮助与支持</a><a href="privacy.html">隐私政策</a><a href="#en">English</a></nav>
+
+  <section>
+    <h2>它能做什么</h2>
+    <ul>
+      <li>选中一段文字，按 <kbd>⌃</kbd><kbd>⌥</kbd><kbd>T</kbd>，译文浮在旁边。先出本机离线翻译，再换成更顺的 AI 译文（需要你自己填 AI 接口）。</li>
+      <li>什么都没选时按，翻译刚复制的文字；复制的是截图，就先在本机识别图里的字再翻。</li>
+      <li>按 <kbd>⌃</kbd><kbd>⌥</kbd><kbd>S</kbd> 框选屏幕上的一块区域翻译，视频字幕也能翻。</li>
+      <li>选一个单词，卡片变成小词典；按 <kbd>Tab</kbd> 看详解，按 <kbd>A</kbd> 把这段话交给你选的 AI 网站接着问。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>第一次使用</h2>
+    <p>打开瞬译会弹出设置窗口，概览页有四项：</p>
+    <ul>
+      <li><b>辅助功能</b>：必须打开。瞬译靠它模拟一次复制拿到你选中的文字，并把译文粘贴回去。</li>
+      <li><b>离线语言包</b>：建议下载，装好后断网也能翻译。</li>
+      <li><b>屏幕录制</b>：可选。打开后框选翻译时画面会先冻住，方便截视频字幕。</li>
+      <li><b>AI 精译</b>：可选。在设置的「AI 精译」里填你自己的 OpenAI 兼容接口地址和 API Key，支持 Chat Completions 和 Responses 两种接口，可以开关模型思考。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>常见问题</h2>
+    <h3>按了没反应</h3>
+    <p>多半是辅助功能没开。打开「系统设置 → 隐私与安全性 → 辅助功能」，把瞬译打开；如果已经打开，关掉再打开一次。</p>
+    <h3>只出离线译文，没有 AI 译文</h3>
+    <p>AI 精译要你自己填接口和 Key。填好后点「测试翻译」，看接口通不通。如果提示不支持 Responses，把接口类型换回 Chat Completions。</p>
+    <h3>问 AI 时没有自动发出去</h3>
+    <p>有的网站不支持在网址里预填问题，瞬译会把问题放进剪贴板，点一下输入框按 <kbd>⌘</kbd><kbd>V</kbd> 就行。第一次用某个网站，要先在浏览器里登录一次。</p>
+    <h3>想用遥控器</h3>
+    <p>Siri Remote 的按键要配合第三方工具 HyperVibe 使用。在设置的「快捷键与遥控器」页点「授权 HyperVibe 配置文件夹」，选中 ~/.config/siriremote，就能在下拉菜单里给遥控器按键分配动作。</p>
+    <h3>怎么卸载</h3>
+    <p>退出瞬译，把它从「应用程序」拖到废纸篓。设置和翻译记录都在它自己的沙盒容器里，会一起清掉。</p>
+  </section>
+
+  <section>
+    <h2>反馈</h2>
+    <p>遇到问题或者有想法，请在 <a href="https://github.com/ViffyGwaanl/shunyi/issues">GitHub Issues</a> 留言，写上 macOS 版本、瞬译版本和操作步骤。</p>
+  </section>
+
+  <section id="en">
+    <h2>English</h2>
+    <p>Shunyi (瞬译) is a menu-bar translator for macOS. Select text and press <kbd>⌃</kbd><kbd>⌥</kbd><kbd>T</kbd> to see a translation next to it: an on-device translation first, then an optional AI translation through an OpenAI-compatible endpoint you configure yourself (Chat Completions or Responses, with a switch for model thinking). With nothing selected it translates the clipboard, including text recognized on-device from a copied screenshot. <kbd>⌃</kbd><kbd>⌥</kbd><kbd>S</kbd> translates a region of the screen.</p>
+    <p>It needs the Accessibility permission to copy your selection and paste translations. Screen Recording is optional. Support and feedback: <a href="https://github.com/ViffyGwaanl/shunyi/issues">GitHub Issues</a>. See the <a href="privacy.html">privacy policy</a>.</p>
+  </section>
+
+  <footer>© 2026 瞬译</footer>
+</main>
+</body>
+</html>
