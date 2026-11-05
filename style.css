@@ -1,6 +1,6 @@
-:root { --bg: #f7f6fb; --card: #ffffff; --text: #1d1b22; --muted: #6b6676; --line: #e6e3ee; --accent: #8a45f0; }
+:root { --bg: #f7f2e8; --card: #fffdf8; --text: #1d2333; --muted: #6b6f7a; --line: #e7dfd0; --accent: #1f5e9e; }
 @media (prefers-color-scheme: dark) {
-  :root { --bg: #141218; --card: #1e1b24; --text: #ecebf1; --muted: #a29dad; --line: #2e2a36; --accent: #b98cff; }
+  :root { --bg: #15171c; --card: #1e2128; --text: #ecebe6; --muted: #a3a6ad; --line: #2d3039; --accent: #78abee; }
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.75 -apple-system, "PingFang SC", "Hiragino Sans GB", "Helvetica Neue", sans-serif; }
