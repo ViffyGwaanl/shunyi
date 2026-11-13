@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>慢頁翻譯 · 選取一句，按一下，就懂了</title>
+<meta name="description" content="慢頁翻譯是 Mac 選單列裡的隨手翻譯。看外文時選取一句，按一下快速鍵，譯文就浮在旁邊：本機離線翻譯先到，接上你自己的 AI API，一秒多以後換成更道地的版本。支援 20 種語言，沒有帳號，沒有統計。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="慢頁 Page &amp; Pause">
+<meta property="og:title" content="慢頁翻譯 · 選取一句，按一下，就懂了">
+<meta property="og:description" content="Mac 選單列裡的隨手翻譯。譯文浮在你正在讀的那句話旁邊，本機先出，AI 再潤一遍。">
+<meta property="og:image" content="https://viffygwaanl.github.io/shunyi/og-zh-hant.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F7F2E8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14161B" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="icon.png">
+<link rel="alternate" hreflang="zh-Hans" href="./">
+<link rel="alternate" hreflang="zh-Hant" href="zh-hant.html">
+<link rel="alternate" hreflang="en" href="en.html">
+<link rel="alternate" hreflang="x-default" href="./">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js')</script>
+<script src="site.js" defer></script>
+<noscript><style>.demo .demo-card{opacity:1;transform:none}.demo .sel{background-size:100% 100%}.demo .b-local,.demo .t-local{opacity:0}.demo .b-ai,.demo .t-ai{opacity:1}.js .reveal{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#main">跳到本文</a>
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-cursor" viewBox="0 0 24 24"><path d="M8 4c2.2 0 4 1 4 3v10c0 2-1.8 3-4 3M16 4c-2.2 0-4 1-4 3M12 17c0 2 1.8 3 4 3M9.5 12h5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M10 3l1.9 5.1L17 10l-5.1 1.9L10 17l-1.9-5.1L3 10l5.1-1.9zM18.5 14l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M9 4h6l-1 6 3 3.5H7l3-3.5zM12 13.5V20"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8" width="11" height="13" rx="2.2"/><path d="M5 16V5.2A2.2 2.2 0 0 1 7.2 3H15"/></symbol>
+  <symbol id="i-speaker" viewBox="0 0 24 24"><path d="M4 9.5v5h3.4L12 18V6L7.4 9.5zM15.5 9.3a3.8 3.8 0 0 1 0 5.4M18.2 6.8a7.4 7.4 0 0 1 0 10.4"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9.5L12 5l10 4.5-10 4.5zM6 11.6v4.2c1.6 1.5 3.6 2.2 6 2.2s4.4-.7 6-2.2v-4.2M22 9.5V15"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4.2 4.5h9.6A2.2 2.2 0 0 1 16 6.7v4.6a2.2 2.2 0 0 1-2.2 2.2H9l-3.4 2.9v-2.9H4.2A2.2 2.2 0 0 1 2 11.3V6.7a2.2 2.2 0 0 1 2.2-2.2zM18.6 9.5h1.2a2.2 2.2 0 0 1 2.2 2.2V16a2.2 2.2 0 0 1-2.2 2.2h-.6v2.6L16 18.2h-3.2"/></symbol>
+  <symbol id="i-viewfinder" viewBox="0 0 24 24"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2M8 10h8M8 14h5"/></symbol>
+  <symbol id="i-region" viewBox="0 0 24 24"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/></symbol>
+  <symbol id="i-laptop" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="10" rx="1.6"/><path d="M2.5 19h19"/></symbol>
+  <symbol id="i-route" viewBox="0 0 24 24"><path d="M3 12h12M11 7.5l4.5 4.5-4.5 4.5M20.5 5v14"/></symbol>
+  <symbol id="i-tray" viewBox="0 0 24 24"><path d="M3.5 14l2.3-8.5h12.4l2.3 8.5M3.5 14v3.8A2.2 2.2 0 0 0 5.7 20h12.6a2.2 2.2 0 0 0 2.2-2.2V14M3.5 14h5a3.5 3.5 0 0 0 7 0h5"/></symbol>
+</svg>
+
+<header class="top wrap">
+  <a class="brand" href="zh-hant.html" aria-label="慢頁翻譯 首頁"><img src="icon.png" alt="" width="30" height="30"><span>慢頁翻譯</span></a>
+  <nav aria-label="頁面導覽">
+    <a class="opt" href="#features">功能</a>
+    <a class="opt" href="#privacy">隱私</a>
+    <a href="#help">說明</a>
+    <span class="langs">
+      <a href="./" lang="zh-Hans" hreflang="zh-Hans">简体</a>
+      <a href="zh-hant.html" aria-current="page">繁體</a>
+      <a href="en.html" lang="en" hreflang="en">English</a>
+    </span>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- 首屏 -->
+<section class="hero wrap">
+  <div class="hero-text">
+    <p class="eyebrow"><span>慢頁 Page &amp; Pause</span><i></i><span>Mac 選單列翻譯</span></p>
+    <h1><span class="beat">選取一句，</span><span class="beat">按一下，</span><span class="beat">就懂了。</span></h1>
+    <p class="lede">看外文網頁、文件、影片，碰到讀不太懂的一句，選取它，按一下快速鍵，譯文就浮在旁邊。眼睛不用離開正在讀的那一頁。</p>
+    <div class="cta">
+      <a class="btn primary" data-link="appStore" aria-disabled="true"><small data-live="免費下載">即將上架</small> <b>Mac App Store</b></a>
+      <a class="btn" data-link="dmg" aria-disabled="true"><small data-live="直接下載 · 已公證">即將提供</small> <b>下載 dmg</b></a>
+    </div>
+    <p class="meta"><span>免費</span><span>需要 macOS 26 或以上版本</span><span>沒有帳號，沒有統計</span></p>
+    <p class="meta note"><span>支援 20 種語言</span><span>介面有繁體中文、<span lang="zh-Hans">简体中文</span>和 English</span></p>
+  </div>
+
+  <figure class="demo" id="demo" aria-label="示範：在一篇英文文章裡選取一句話，按下 Control、Option 和 T，譯文卡片出現在這句話下面；本機翻譯先到，約一秒後換成 AI 譯文。">
+    <div class="stage" aria-hidden="true">
+      <div class="sheet">
+        <div class="sheet-bar"><i></i><i></i><i></i><span>Why Small Tools Win</span></div>
+        <div class="sheet-body" lang="en">
+          <p class="kicker">ESSAY</p>
+          <p class="title">Why Small Tools Win</p>
+          <p class="sub">A short note on speed and habit</p>
+          <p class="t"><span class="sel" id="sel">Every great product starts as a small experiment that refuses to die.</span> It solves one annoying problem, and it solves it so quickly that you stop noticing the problem ever existed.</p>
+          <p class="t">The best tools disappear into your habits. You press a button, the answer is already there, and your attention never leaves the page you were reading.</p>
+          <p class="t">Speed is not a feature you add at the end. It is a promise you keep in every single interaction.</p>
+        </div>
+      </div>
+
+      <div class="card demo-card" id="card">
+        <div class="card-head">
+          <span class="chip"><svg class="ic"><use href="#i-cursor"/></svg>選取</span>
+          <span class="pair">英文<svg class="ic"><use href="#i-arrow"/></svg>中文</span>
+          <span class="grow"></span>
+          <span class="badge">
+            <span class="b-local"><svg class="ic"><use href="#i-cpu"/></svg>本機 0.06s<em>· AI 精修中</em><i class="spin"></i></span>
+            <span class="b-ai"><svg class="ic solid"><use href="#i-sparkles"/></svg>AI 1.1s</span>
+          </span>
+          <svg class="ic pin"><use href="#i-pin"/></svg>
+        </div>
+        <div class="card-body">
+          <p class="src" lang="en">Every great product starts as a small experiment that refuses to die.</p>
+          <div class="out">
+            <p class="t-local">每一個偉大的產品都是從一個拒絕死亡的小實驗開始的。</p>
+            <p class="t-ai">每一個偉大的產品，都始於一個不肯消亡的小實驗。</p>
+          </div>
+        </div>
+        <div class="card-foot">
+          <span class="pill"><svg class="ic"><use href="#i-copy"/></svg>複製<span class="k">⌘C</span></span>
+          <span class="pill"><svg class="ic"><use href="#i-speaker"/></svg>朗讀<span class="k">空白鍵</span></span>
+          <span class="pill"><svg class="ic"><use href="#i-cap"/></svg>詳解<span class="k">⇥</span></span>
+          <span class="pill"><svg class="ic"><use href="#i-chat"/></svg>問 AI<span class="k">A</span></span>
+          <span class="esc">esc</span>
+        </div>
+      </div>
+    </div>
+    <figcaption class="keys"><span><kbd>⌃</kbd><kbd>⌥</kbd><kbd>T</kbd></span><span>翻譯選取的文字，快速鍵可以在設定裡改</span></figcaption>
+  </figure>
+</section>
+
+<div class="wrap"><div class="wave" aria-hidden="true"></div></div>
+
+<!-- 功能 -->
+<section class="section wrap" id="features">
+  <header class="sec-head reveal">
+    <p class="folio"><span>01</span>功能</p>
+    <h2><span class="nb">一張卡片，</span><span class="nb">八件事</span></h2>
+    <p class="lede">都是按一下的事。不用切換視窗，也不用另開一個 App。支援 20 種語言互譯，下面用英文翻中文舉例。</p>
+  </header>
+
+  <div class="features">
+    <article class="feature wide reveal">
+      <div>
+        <p class="f-no">01</p>
+        <h3><span class="nb">本機先出，</span><span class="nb">AI 再換成更順的</span></h3>
+        <p class="body">按下去 0.06 秒，macOS 內建的離線翻譯就到了，沒有網路也能用。如果你填了自己的 AI API，一秒多以後，同一個位置會換成更順、更道地的譯文。</p>
+        <p class="tags"><span><kbd>⌃</kbd><kbd>⌥</kbd><kbd>T</kbd></span><span class="tag">離線可用</span><span class="tag">AI 精譯是可選的</span></p>
+      </div>
+      <div class="plate" aria-hidden="true">
+        <div class="two">
+          <div class="two-row"><span class="badge"><svg class="ic"><use href="#i-cpu"/></svg>本機 0.06s</span><p>每一個偉大的產品都是從一個拒絕死亡的小實驗開始的。</p></div>
+          <div class="two-gap"><i></i><span>一秒多以後</span></div>
+          <div class="two-row final"><span class="badge"><svg class="ic solid"><use href="#i-sparkles"/></svg>AI 1.1s</span><p>每一個偉大的產品，都始於一個不肯消亡的小實驗。</p></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="feature reveal">
+      <div class="plate" aria-hidden="true">
+        <div class="clip">
+          <div class="shot" lang="en"><b>The museum will close at 3 pm this Friday.</b><i></i><i></i><span class="vf"></span></div>
+          <svg class="ic flow"><use href="#i-arrow"/></svg>
+          <div class="card mini">
+            <div class="card-head"><span class="chip"><svg class="ic"><use href="#i-viewfinder"/></svg>截圖文字 · 剛剛</span></div>
+            <div class="card-body"><p class="out">博物館本週五下午 3 點閉館。</p></div>
+          </div>
+        </div>
+      </div>
+      <p class="f-no">02</p>
+      <h3><span class="nb">沒選取？</span><span class="nb">就翻你剛複製的</span></h3>
+      <p class="body">什麼都沒選取的時候按，翻譯你剛複製的那段文字。複製的是一張截圖，會先在本機辨識圖裡的字再翻，圖片不會上傳。</p>
+    </article>
+
+    <article class="feature reveal">
+      <div class="plate" aria-hidden="true">
+        <div class="region">
+          <div class="video"><span class="frozen"><i></i>畫面已凍住</span><span class="subtitle" lang="en">Down here, sunlight never arrives.</span></div>
+          <div class="card line"><span class="chip"><svg class="ic"><use href="#i-region"/></svg>框選</span><span>在這下面，陽光永遠照不到。</span></div>
+        </div>
+      </div>
+      <p class="f-no">03</p>
+      <h3><span class="nb">影片字幕，</span><span class="nb">先凍住再框</span></h3>
+      <p class="body">字幕一閃而過？按一下，畫面先凍住，拖一個框圈住那行字，放開就翻。網頁裡選不到的字、圖片上的字，也能這樣翻。</p>
+      <p class="tags"><span><kbd>⌃</kbd><kbd>⌥</kbd><kbd>S</kbd></span></p>
+    </article>
+
+    <article class="feature reveal">
+      <div class="plate" aria-hidden="true">
+        <div class="card mini">
+          <div class="dict-head"><b lang="en">serendipity</b><span class="say"><span class="ipa">/ˌserənˈdɪpəti/</span><svg class="ic solid"><use href="#i-speaker"/></svg></span></div>
+          <div class="dict">
+            <p class="main">機緣巧合</p>
+            <p class="sense"><span class="pos">n.</span><span>意外發現美好事物的運氣；機緣巧合</span></p>
+            <p class="ex"><i lang="en">We found the café by pure serendipity.</i><span>我們找到那家咖啡館，純屬機緣巧合。</span></p>
+          </div>
+        </div>
+      </div>
+      <p class="f-no">04</p>
+      <h3><span class="nb">選一個單字，</span><span class="nb">卡片變成小字典</span></h3>
+      <p class="body">音標、詞性、釋義、例句，排好了給你。按空白鍵聽發音。</p>
+      <p class="tags"><span class="tag">需要你自己的 AI API</span></p>
+    </article>
+
+    <article class="feature reveal">
+      <div class="plate" aria-hidden="true">
+        <div class="card mini">
+          <div class="explain">
+            <p class="ex-head"><svg class="ic"><use href="#i-cap"/></svg>詳解</p>
+            <p><b>意思</b>：好產品一開始都很小，是靠一直不放棄才長大的。說實驗「不肯死」，帶一點擬人的幽默。</p>
+            <ul>
+              <li><b lang="en">refuses to die</b> → 不肯消亡，擬人的說法</li>
+              <li><b lang="en">starts as</b> → 以……的樣子起步</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="f-no">05</p>
+      <h3><span class="nb">按 Tab，</span><span class="nb">把這句話講明白</span></h3>
+      <p class="body">這句話到底想說什麼、語氣怎麼樣，難懂的詞和文法一條條列出來。讀長難句、學外語的時候用得上。</p>
+      <p class="tags"><span><kbd>⇥</kbd></span><span class="tag">需要你自己的 AI API</span></p>
+    </article>
+
+    <article class="feature reveal">
+      <div class="plate" aria-hidden="true">
+        <div class="replace">
+          <div class="field"><span class="hl">這個週末有空一起吃飯嗎？</span></div>
+          <p class="do"><svg class="ic"><use href="#i-arrow"/></svg><span><kbd>⌃</kbd><kbd>⌥</kbd><kbd>T</kbd></span><span>然後</span><kbd>↩</kbd></p>
+          <div class="field" lang="en">Are you free for dinner this weekend?<i class="caret"></i></div>
+        </div>
+      </div>
+      <p class="f-no">06</p>
+      <h3><span class="nb">用母語寫，</span><span class="nb">按 Return 換成外文</span></h3>
+      <p class="body">寫外文郵件、回訊息的時候，先用母語寫，選取，按一下，再按 Return，譯文就取代你選取的那段。</p>
+      <p class="tags"><span><kbd>↩</kbd></span></p>
+    </article>
+
+    <article class="feature reveal">
+      <div class="plate" aria-hidden="true">
+        <div class="browser">
+          <div class="browser-bar"><i></i><i></i><i></i><span>你選的 AI 網站</span></div>
+          <div class="chat">
+            <p class="me">翻譯成繁體中文：<span lang="en">Every great product starts as a small experiment that refuses to die.</span></p>
+            <p class="bot"><i></i><i></i></p>
+            <p class="ask">接著問……</p>
+          </div>
+        </div>
+      </div>
+      <p class="f-no">07</p>
+      <h3><span class="nb">還想接著問？</span><span class="nb">按 A</span></h3>
+      <p class="body">慢頁翻譯會在瀏覽器裡打開你選的 AI 網站，把這段話帶過去，接著追問就行。用的是你自己在網頁上的帳號。</p>
+      <p class="tags"><span><kbd>A</kbd></span></p>
+    </article>
+
+    <article class="feature wide flip reveal">
+      <div>
+        <p class="f-no">08</p>
+        <h3><span class="nb">坐在沙發上，</span><span class="nb">用遙控器按</span></h3>
+        <p class="body">搭配第三方工具 HyperVibe，Siri Remote 的按鍵也能觸發翻譯、框選和問 AI，哪個鍵做什麼由你決定。Mac 接著電視看影片的時候很順手。</p>
+        <p class="tags"><span class="tag">需要 HyperVibe</span></p>
+      </div>
+      <div class="plate" aria-hidden="true">
+        <div class="remote-wrap">
+          <div class="remote"><i class="power"></i><i class="pad"></i><i class="b b1"></i><i class="b b2"></i><i class="b b3"></i><i class="vol"></i><i class="b b4"></i></div>
+          <ul class="remote-map">
+            <li><b>電源鍵 按一下</b><span>翻譯</span></li>
+            <li><b>電源鍵 長按</b><span>問 AI</span></li>
+            <li><b>TV 鍵 按兩下</b><span>框選翻譯</span></li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <ul class="legend reveal" aria-label="卡片上的按鍵">
+    <li><strong>卡片上的按鍵</strong></li>
+    <li><span><kbd>⌘</kbd><kbd>C</kbd></span>複製譯文</li>
+    <li><kbd>空白鍵</kbd>朗讀</li>
+    <li><kbd>⇥</kbd>詳解</li>
+    <li><kbd>↩</kbd>取代原文</li>
+    <li><kbd>A</kbd>問 AI</li>
+    <li><kbd>P</kbd>固定卡片</li>
+    <li><kbd>esc</kbd>關閉</li>
+  </ul>
+</section>
+
+<!-- 隱私 -->
+<section class="sea" id="privacy">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="folio"><span>02</span>隱私</p>
+      <h2><span class="nb">沒有帳號，</span><span class="nb">沒有伺服器，</span><span class="nb">沒有統計</span></h2>
+      <p class="lede">開發者收不到你翻譯的任何內容，也收不到任何關於你的資料。</p>
+    </header>
+    <ul class="thirds reveal">
+      <li>
+        <svg class="ic" aria-hidden="true"><use href="#i-laptop"/></svg>
+        <h3>在你的 Mac 上完成</h3>
+        <p>離線翻譯和截圖文字辨識，用的都是 macOS 內建的功能，在本機完成，不經過網路。</p>
+      </li>
+      <li>
+        <svg class="ic" aria-hidden="true"><use href="#i-route"/></svg>
+        <h3>只去你指定的地方</h3>
+        <p>只有你自己填了 AI API，要翻譯的文字才會從你的 Mac 直接傳到那個 API，不經過我們。</p>
+      </li>
+      <li>
+        <svg class="ic" aria-hidden="true"><use href="#i-tray"/></svg>
+        <h3>紀錄留在本機</h3>
+        <p>設定和最近 200 筆翻譯紀錄只存在 App 自己的沙盒裡，隨時可以清除，刪掉 App 就一起清掉。</p>
+      </li>
+    </ul>
+    <a class="more" href="privacy.html#zh-hant">閱讀完整的隱私權政策 →</a>
+  </div>
+</section>
+
+<!-- 第一次使用 -->
+<section class="section wrap" id="help">
+  <header class="sec-head reveal">
+    <p class="folio"><span>03</span>第一次使用</p>
+    <h2><span class="nb">裝好以後，</span><span class="nb">看一眼這四項</span></h2>
+    <p class="lede">第一次打開會跳出設定視窗，概覽頁列著四項。前兩項弄好就能用了。</p>
+  </header>
+  <ol class="steps reveal">
+    <li>
+      <h3>輔助使用權限 <span class="need must">必要</span></h3>
+      <p>慢頁翻譯靠它在你按下快速鍵的那一刻模擬一次複製，拿到選取的文字；你選擇取代時再模擬一次貼上。它不會記錄你的鍵盤輸入。</p>
+    </li>
+    <li>
+      <h3>離線翻譯語言包 <span class="need good">建議</span></h3>
+      <p>下載一次，之後沒有網路也能翻譯。母語在「一般 → 語言」裡選。</p>
+    </li>
+    <li>
+      <h3>螢幕錄製 <span class="need">可選</span></h3>
+      <p>打開以後，框選翻譯時畫面會先凍住，方便截影片字幕。</p>
+    </li>
+    <li>
+      <h3>AI 精譯 <span class="need">可選</span></h3>
+      <p>在設定的「AI 精譯」裡填你自己的 API 位址和 API Key（相容 OpenAI）。Chat Completions 和 Responses 兩種 API 類型都支援，模型思考可以開，也可以關。</p>
+    </li>
+  </ol>
+</section>
+
+<!-- 常見問題 -->
+<section class="section wrap" id="faq">
+  <header class="sec-head reveal">
+    <p class="folio"><span>04</span>常見問題</p>
+    <h2><span class="nb">卡住的時候，</span><span class="nb">先看這裡</span></h2>
+  </header>
+  <div class="faq reveal">
+    <details>
+      <summary>按了沒反應</summary>
+      <p>多半是輔助使用權限沒開。打開「系統設定 → 隱私權與安全性 → 輔助使用」，把慢頁翻譯打開。如果已經開著，關掉再開一次。</p>
+    </details>
+    <details>
+      <summary>支援哪些語言</summary>
+      <p>20 種，可以互譯：繁體中文、<span lang="zh-Hans">简体中文</span>、English、<span lang="ja">日本語</span>、<span lang="ko">한국어</span>、Français、Deutsch、Español、Italiano、Português、<span lang="ru">Русский</span>、<span lang="ar">العربية</span>、<span lang="th">ไทย</span>、Tiếng Việt、Bahasa Indonesia、Türkçe、Polski、Nederlands、<span lang="uk">Українська</span>、<span lang="hi">हिन्दी</span>。介面有繁體中文、<span lang="zh-Hans">简体中文</span>和 English。</p>
+    </details>
+    <details>
+      <summary>只出離線譯文，沒有 AI 譯文</summary>
+      <p>AI 精譯要你自己填 API 位址和 Key。填好以後點「測試翻譯」，看連不連得上。如果提示不支援 Responses，把 API 類型換回 Chat Completions。</p>
+    </details>
+    <details>
+      <summary>問 AI 的時候，問題沒有自動送出</summary>
+      <p>有的網站不支援在網址裡預先填好問題，這時慢頁翻譯會把問題放進剪貼簿，點一下輸入框，按 <kbd>⌘</kbd><kbd>V</kbd> 就行。第一次用某個網站，要先在瀏覽器裡登入一次。</p>
+    </details>
+    <details>
+      <summary>想用遙控器</summary>
+      <p>Siri Remote 的按鍵要搭配第三方工具 HyperVibe 使用。在設定的「快速鍵與遙控器」頁點「授權 HyperVibe 設定檔案夾⋯」，選取 ~/.config/siriremote，之後就能在下拉選單裡替遙控器按鍵指定動作。</p>
+    </details>
+    <details>
+      <summary>怎麼移除</summary>
+      <p>結束慢頁翻譯，把它從「應用程式」拖到垃圾桶。設定和翻譯紀錄都在它自己的沙盒容器裡，會一起清掉。</p>
+    </details>
+  </div>
+  <p class="feedback reveal">遇到別的問題，或者有想法，請到 <a href="https://github.com/ViffyGwaanl/shunyi/issues">GitHub Issues</a> 留言，寫上 macOS 版本、慢頁翻譯版本和操作步驟。</p>
+</section>
+
+<!-- 結尾 -->
+<section class="closing wrap reveal">
+  <img src="icon.png" alt="慢頁翻譯圖像" width="84" height="84">
+  <h2><span class="nb">下一句讀不懂的，</span><span class="nb">按一下試試</span></h2>
+  <div class="cta">
+    <a class="btn primary" data-link="appStore" aria-disabled="true"><small data-live="免費下載">即將上架</small> <b>Mac App Store</b></a>
+    <a class="btn" data-link="dmg" aria-disabled="true"><small data-live="直接下載 · 已公證">即將提供</small> <b>下載 dmg</b></a>
+  </div>
+  <p class="meta">需要 macOS 26 或以上版本</p>
+</section>
+
+</main>
+
+<footer class="wrap"><div class="foot">
+  <span>© 2026 慢頁 Page &amp; Pause</span>
+  <nav aria-label="頁尾">
+    <a href="privacy.html#zh-hant">隱私權政策</a>
+    <a href="https://github.com/ViffyGwaanl/shunyi/issues">意見回饋</a>
+    <a href="./" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
+    <a href="en.html" lang="en" hreflang="en">English</a>
+  </nav>
+</div></footer>
+</body>
+</html>

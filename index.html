@@ -3,68 +3,388 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>慢页翻译 · 帮助与支持</title>
+<title>慢页翻译 · 选中一句，按一下，就懂了</title>
+<meta name="description" content="慢页翻译是 Mac 菜单栏里的随手翻译。看外文时选中一句，按一下快捷键，译文就浮在旁边：本机离线翻译先到，接上你自己的 AI 接口，一秒多以后换成更地道的版本。支持 20 种语言，没有账号，没有统计。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="慢页 Page &amp; Pause">
+<meta property="og:title" content="慢页翻译 · 选中一句，按一下，就懂了">
+<meta property="og:description" content="Mac 菜单栏里的随手翻译。译文浮在你正在读的那句话旁边，本机先出，AI 再润一遍。">
+<meta property="og:image" content="https://viffygwaanl.github.io/shunyi/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F7F2E8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14161B" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="icon.png">
+<link rel="alternate" hreflang="zh-Hans" href="./">
+<link rel="alternate" hreflang="zh-Hant" href="zh-hant.html">
+<link rel="alternate" hreflang="en" href="en.html">
+<link rel="alternate" hreflang="x-default" href="./">
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js')</script>
+<script src="site.js" defer></script>
+<noscript><style>.demo .demo-card{opacity:1;transform:none}.demo .sel{background-size:100% 100%}.demo .b-local,.demo .t-local{opacity:0}.demo .b-ai,.demo .t-ai{opacity:1}.js .reveal{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
-<main>
-  <header>
-    <img src="icon.png" alt="慢页翻译图标">
-    <div>
-      <h1>慢页翻译</h1>
-      <p>选中一句，按一下，就懂了。Mac 菜单栏里的随手翻译。</p>
+<a class="skip" href="#main">跳到正文</a>
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-cursor" viewBox="0 0 24 24"><path d="M8 4c2.2 0 4 1 4 3v10c0 2-1.8 3-4 3M16 4c-2.2 0-4 1-4 3M12 17c0 2 1.8 3 4 3M9.5 12h5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M10 3l1.9 5.1L17 10l-5.1 1.9L10 17l-1.9-5.1L3 10l5.1-1.9zM18.5 14l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M9 4h6l-1 6 3 3.5H7l3-3.5zM12 13.5V20"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8" width="11" height="13" rx="2.2"/><path d="M5 16V5.2A2.2 2.2 0 0 1 7.2 3H15"/></symbol>
+  <symbol id="i-speaker" viewBox="0 0 24 24"><path d="M4 9.5v5h3.4L12 18V6L7.4 9.5zM15.5 9.3a3.8 3.8 0 0 1 0 5.4M18.2 6.8a7.4 7.4 0 0 1 0 10.4"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9.5L12 5l10 4.5-10 4.5zM6 11.6v4.2c1.6 1.5 3.6 2.2 6 2.2s4.4-.7 6-2.2v-4.2M22 9.5V15"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4.2 4.5h9.6A2.2 2.2 0 0 1 16 6.7v4.6a2.2 2.2 0 0 1-2.2 2.2H9l-3.4 2.9v-2.9H4.2A2.2 2.2 0 0 1 2 11.3V6.7a2.2 2.2 0 0 1 2.2-2.2zM18.6 9.5h1.2a2.2 2.2 0 0 1 2.2 2.2V16a2.2 2.2 0 0 1-2.2 2.2h-.6v2.6L16 18.2h-3.2"/></symbol>
+  <symbol id="i-viewfinder" viewBox="0 0 24 24"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2M8 10h8M8 14h5"/></symbol>
+  <symbol id="i-region" viewBox="0 0 24 24"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/></symbol>
+  <symbol id="i-laptop" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="10" rx="1.6"/><path d="M2.5 19h19"/></symbol>
+  <symbol id="i-route" viewBox="0 0 24 24"><path d="M3 12h12M11 7.5l4.5 4.5-4.5 4.5M20.5 5v14"/></symbol>
+  <symbol id="i-tray" viewBox="0 0 24 24"><path d="M3.5 14l2.3-8.5h12.4l2.3 8.5M3.5 14v3.8A2.2 2.2 0 0 0 5.7 20h12.6a2.2 2.2 0 0 0 2.2-2.2V14M3.5 14h5a3.5 3.5 0 0 0 7 0h5"/></symbol>
+</svg>
+
+<header class="top wrap">
+  <a class="brand" href="./" aria-label="慢页翻译 首页"><img src="icon.png" alt="" width="30" height="30"><span>慢页翻译</span></a>
+  <nav aria-label="页面导航">
+    <a class="opt" href="#features">功能</a>
+    <a class="opt" href="#privacy">隐私</a>
+    <a href="#help">帮助</a>
+    <span class="langs">
+      <a href="./" aria-current="page">简体</a>
+      <a href="zh-hant.html" lang="zh-Hant" hreflang="zh-Hant">繁體</a>
+      <a href="en.html" lang="en" hreflang="en">English</a>
+    </span>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- 首屏 -->
+<section class="hero wrap">
+  <div class="hero-text">
+    <p class="eyebrow"><span>慢页 Page &amp; Pause</span><i></i><span>Mac 菜单栏翻译</span></p>
+    <h1><span class="beat">选中一句，</span><span class="beat">按一下，</span><span class="beat">就懂了。</span></h1>
+    <p class="lede">看外文网页、文档、视频，碰到读不太懂的一句，选中它，按一下快捷键，译文就浮在旁边。眼睛不用离开正在读的那一页。</p>
+    <div class="cta">
+      <a class="btn primary" data-link="appStore" aria-disabled="true"><small data-live="免费下载">即将上架</small> <b>Mac App Store</b></a>
+      <a class="btn" data-link="dmg" aria-disabled="true"><small data-live="直接下载 · 已公证">即将提供</small> <b>下载 dmg</b></a>
     </div>
+    <p class="meta"><span>免费</span><span>需要 macOS 26 或更新版本</span><span>没有账号，没有统计</span></p>
+    <p class="meta note"><span>支持 20 种语言</span><span>界面有简体中文、<span lang="zh-Hant">繁體中文</span>和 English</span></p>
+  </div>
+
+  <figure class="demo" id="demo" aria-label="演示：在一篇英文文章里选中一句话，按下 Control、Option 和 T，译文卡片出现在这句话下面；本机翻译先到，约一秒后换成 AI 译文。">
+    <div class="stage" aria-hidden="true">
+      <div class="sheet">
+        <div class="sheet-bar"><i></i><i></i><i></i><span>Why Small Tools Win</span></div>
+        <div class="sheet-body" lang="en">
+          <p class="kicker">ESSAY</p>
+          <p class="title">Why Small Tools Win</p>
+          <p class="sub">A short note on speed and habit</p>
+          <p class="t"><span class="sel" id="sel">Every great product starts as a small experiment that refuses to die.</span> It solves one annoying problem, and it solves it so quickly that you stop noticing the problem ever existed.</p>
+          <p class="t">The best tools disappear into your habits. You press a button, the answer is already there, and your attention never leaves the page you were reading.</p>
+          <p class="t">Speed is not a feature you add at the end. It is a promise you keep in every single interaction.</p>
+        </div>
+      </div>
+
+      <div class="card demo-card" id="card">
+        <div class="card-head">
+          <span class="chip"><svg class="ic"><use href="#i-cursor"/></svg>选中</span>
+          <span class="pair">英语<svg class="ic"><use href="#i-arrow"/></svg>中文</span>
+          <span class="grow"></span>
+          <span class="badge">
+            <span class="b-local"><svg class="ic"><use href="#i-cpu"/></svg>本机 0.06s<em>· AI 精修中</em><i class="spin"></i></span>
+            <span class="b-ai"><svg class="ic solid"><use href="#i-sparkles"/></svg>AI 1.1s</span>
+          </span>
+          <svg class="ic pin"><use href="#i-pin"/></svg>
+        </div>
+        <div class="card-body">
+          <p class="src" lang="en">Every great product starts as a small experiment that refuses to die.</p>
+          <div class="out">
+            <p class="t-local">每一个伟大的产品都是从一个拒绝死亡的小实验开始的。</p>
+            <p class="t-ai">每一个伟大的产品，都始于一个不肯消亡的小实验。</p>
+          </div>
+        </div>
+        <div class="card-foot">
+          <span class="pill"><svg class="ic"><use href="#i-copy"/></svg>复制<span class="k">⌘C</span></span>
+          <span class="pill"><svg class="ic"><use href="#i-speaker"/></svg>朗读<span class="k">空格</span></span>
+          <span class="pill"><svg class="ic"><use href="#i-cap"/></svg>详解<span class="k">⇥</span></span>
+          <span class="pill"><svg class="ic"><use href="#i-chat"/></svg>问 AI<span class="k">A</span></span>
+          <span class="esc">esc</span>
+        </div>
+      </div>
+    </div>
+    <figcaption class="keys"><span><kbd>⌃</kbd><kbd>⌥</kbd><kbd>T</kbd></span><span>翻译选中的文字，快捷键可以在设置里改</span></figcaption>
+  </figure>
+</section>
+
+<div class="wrap"><div class="wave" aria-hidden="true"></div></div>
+
+<!-- 功能 -->
+<section class="section wrap" id="features">
+  <header class="sec-head reveal">
+    <p class="folio"><span>01</span>功能</p>
+    <h2><span class="nb">一张卡片，</span><span class="nb">八件事</span></h2>
+    <p class="lede">都是按一下的事。不用切窗口，也不用另开一个 App。支持 20 种语言互译，下面用英文翻中文举例。</p>
   </header>
-  <nav><a href="./">帮助与支持</a><a href="privacy.html">隐私政策</a><a href="#en">English</a></nav>
 
-  <section>
-    <h2>它能做什么</h2>
-    <ul>
-      <li>选中一段文字，按 <kbd>⌃</kbd><kbd>⌥</kbd><kbd>T</kbd>，译文浮在旁边。先出本机离线翻译，再换成更顺的 AI 译文（需要你自己填 AI 接口）。</li>
-      <li>什么都没选时按，翻译刚复制的文字；复制的是截图，就先在本机识别图里的字再翻。</li>
-      <li>按 <kbd>⌃</kbd><kbd>⌥</kbd><kbd>S</kbd> 框选屏幕上的一块区域翻译，视频字幕也能翻。</li>
-      <li>选一个单词，卡片变成小词典；按 <kbd>Tab</kbd> 看详解，按 <kbd>A</kbd> 把这段话交给你选的 AI 网站接着问。</li>
+  <div class="features">
+    <article class="feature wide reveal">
+      <div>
+        <p class="f-no">01</p>
+        <h3><span class="nb">本机先出，</span><span class="nb">AI 再换成更顺的</span></h3>
+        <p class="body">按下去 0.06 秒，macOS 自带的离线翻译就到了，断网也能用。如果你填了自己的 AI 接口，一秒多以后，同一个位置会换成更顺、更地道的译文。</p>
+        <p class="tags"><span><kbd>⌃</kbd><kbd>⌥</kbd><kbd>T</kbd></span><span class="tag">离线可用</span><span class="tag">AI 精译是可选的</span></p>
+      </div>
+      <div class="plate" aria-hidden="true">
+        <div class="two">
+          <div class="two-row"><span class="badge"><svg class="ic"><use href="#i-cpu"/></svg>本机 0.06s</span><p>每一个伟大的产品都是从一个拒绝死亡的小实验开始的。</p></div>
+          <div class="two-gap"><i></i><span>一秒多以后</span></div>
+          <div class="two-row final"><span class="badge"><svg class="ic solid"><use href="#i-sparkles"/></svg>AI 1.1s</span><p>每一个伟大的产品，都始于一个不肯消亡的小实验。</p></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="feature reveal">
+      <div class="plate" aria-hidden="true">
+        <div class="clip">
+          <div class="shot" lang="en"><b>The museum will close at 3 pm this Friday.</b><i></i><i></i><span class="vf"></span></div>
+          <svg class="ic flow"><use href="#i-arrow"/></svg>
+          <div class="card mini">
+            <div class="card-head"><span class="chip"><svg class="ic"><use href="#i-viewfinder"/></svg>截图文字 · 刚刚</span></div>
+            <div class="card-body"><p class="out">博物馆本周五下午 3 点闭馆。</p></div>
+          </div>
+        </div>
+      </div>
+      <p class="f-no">02</p>
+      <h3><span class="nb">没选中？</span><span class="nb">就翻你刚复制的</span></h3>
+      <p class="body">什么都没选的时候按，翻译你刚复制的那段文字。复制的是一张截图，会先在本机把图里的字认出来再翻，图片不上传。</p>
+    </article>
+
+    <article class="feature reveal">
+      <div class="plate" aria-hidden="true">
+        <div class="region">
+          <div class="video"><span class="frozen"><i></i>画面已冻住</span><span class="subtitle" lang="en">Down here, sunlight never arrives.</span></div>
+          <div class="card line"><span class="chip"><svg class="ic"><use href="#i-region"/></svg>框选</span><span>在这下面，阳光永远照不到。</span></div>
+        </div>
+      </div>
+      <p class="f-no">03</p>
+      <h3><span class="nb">视频字幕，</span><span class="nb">先冻住再框</span></h3>
+      <p class="body">字幕一闪而过？按一下，画面先冻住，拖一个框圈住那行字，松手就翻。网页里选不中的字、图片上的字，也能这样翻。</p>
+      <p class="tags"><span><kbd>⌃</kbd><kbd>⌥</kbd><kbd>S</kbd></span></p>
+    </article>
+
+    <article class="feature reveal">
+      <div class="plate" aria-hidden="true">
+        <div class="card mini">
+          <div class="dict-head"><b lang="en">serendipity</b><span class="say"><span class="ipa">/ˌserənˈdɪpəti/</span><svg class="ic solid"><use href="#i-speaker"/></svg></span></div>
+          <div class="dict">
+            <p class="main">机缘巧合</p>
+            <p class="sense"><span class="pos">n.</span><span>意外发现美好事物的运气；机缘巧合</span></p>
+            <p class="ex"><i lang="en">We found the café by pure serendipity.</i><span>我们找到那家咖啡馆，纯属机缘巧合。</span></p>
+          </div>
+        </div>
+      </div>
+      <p class="f-no">04</p>
+      <h3><span class="nb">选一个单词，</span><span class="nb">卡片变成小词典</span></h3>
+      <p class="body">音标、词性、释义、例句，排好了给你。按空格听发音。</p>
+      <p class="tags"><span class="tag">需要你自己的 AI 接口</span></p>
+    </article>
+
+    <article class="feature reveal">
+      <div class="plate" aria-hidden="true">
+        <div class="card mini">
+          <div class="explain">
+            <p class="ex-head"><svg class="ic"><use href="#i-cap"/></svg>详解</p>
+            <p><b>意思</b>：好产品一开始都很小，是靠一直不放弃才长大的。说实验“不肯死”，带一点拟人的幽默。</p>
+            <ul>
+              <li><b lang="en">refuses to die</b> → 不肯消亡，拟人的说法</li>
+              <li><b lang="en">starts as</b> → 以……的样子起步</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="f-no">05</p>
+      <h3><span class="nb">按 Tab，</span><span class="nb">把这句话讲明白</span></h3>
+      <p class="body">这句话到底想说什么、语气怎么样，难懂的词和语法一条条列出来。读长难句、学外语的时候用得上。</p>
+      <p class="tags"><span><kbd>⇥</kbd></span><span class="tag">需要你自己的 AI 接口</span></p>
+    </article>
+
+    <article class="feature reveal">
+      <div class="plate" aria-hidden="true">
+        <div class="replace">
+          <div class="field"><span class="hl">这个周末有空一起吃饭吗？</span></div>
+          <p class="do"><svg class="ic"><use href="#i-arrow"/></svg><span><kbd>⌃</kbd><kbd>⌥</kbd><kbd>T</kbd></span><span>然后</span><kbd>↩</kbd></p>
+          <div class="field" lang="en">Are you free for dinner this weekend?<i class="caret"></i></div>
+        </div>
+      </div>
+      <p class="f-no">06</p>
+      <h3><span class="nb">用母语写，</span><span class="nb">回车换成外文</span></h3>
+      <p class="body">写外文邮件、回消息的时候，先用母语写，选中，按一下，再按回车，译文就替换掉你选中的那段。</p>
+      <p class="tags"><span><kbd>↩</kbd></span></p>
+    </article>
+
+    <article class="feature reveal">
+      <div class="plate" aria-hidden="true">
+        <div class="browser">
+          <div class="browser-bar"><i></i><i></i><i></i><span>你选的 AI 网站</span></div>
+          <div class="chat">
+            <p class="me">翻译成简体中文：Every great product starts as a small experiment that refuses to die.</p>
+            <p class="bot"><i></i><i></i></p>
+            <p class="ask">接着问……</p>
+          </div>
+        </div>
+      </div>
+      <p class="f-no">07</p>
+      <h3><span class="nb">还想接着问？</span><span class="nb">按 A</span></h3>
+      <p class="body">慢页翻译会在浏览器里打开你选的 AI 网站，把这段话带过去，接着追问就行。用的是你自己在网页上的账号。</p>
+      <p class="tags"><span><kbd>A</kbd></span></p>
+    </article>
+
+    <article class="feature wide flip reveal">
+      <div>
+        <p class="f-no">08</p>
+        <h3><span class="nb">坐在沙发上，</span><span class="nb">用遥控器按</span></h3>
+        <p class="body">配合第三方工具 HyperVibe，Siri Remote 的按键也能触发翻译、框选和问 AI，哪个键做什么由你来定。Mac 接着电视看片的时候很顺手。</p>
+        <p class="tags"><span class="tag">需要 HyperVibe</span></p>
+      </div>
+      <div class="plate" aria-hidden="true">
+        <div class="remote-wrap">
+          <div class="remote"><i class="power"></i><i class="pad"></i><i class="b b1"></i><i class="b b2"></i><i class="b b3"></i><i class="vol"></i><i class="b b4"></i></div>
+          <ul class="remote-map">
+            <li><b>电源键 · 单击</b><span>翻译</span></li>
+            <li><b>电源键 · 长按</b><span>问 AI</span></li>
+            <li><b>TV 键 · 双击</b><span>框选翻译</span></li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <ul class="legend reveal" aria-label="卡片上的按键">
+    <li><strong>卡片上的按键</strong></li>
+    <li><span><kbd>⌘</kbd><kbd>C</kbd></span>复制译文</li>
+    <li><kbd>空格</kbd>朗读</li>
+    <li><kbd>⇥</kbd>详解</li>
+    <li><kbd>↩</kbd>替换原文</li>
+    <li><kbd>A</kbd>问 AI</li>
+    <li><kbd>P</kbd>固定卡片</li>
+    <li><kbd>esc</kbd>关闭</li>
+  </ul>
+</section>
+
+<!-- 隐私 -->
+<section class="sea" id="privacy">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="folio"><span>02</span>隐私</p>
+      <h2><span class="nb">没有账号，</span><span class="nb">没有服务器，</span><span class="nb">没有统计</span></h2>
+      <p class="lede">开发者收不到你翻译的任何内容，也收不到任何关于你的数据。</p>
+    </header>
+    <ul class="thirds reveal">
+      <li>
+        <svg class="ic" aria-hidden="true"><use href="#i-laptop"/></svg>
+        <h3>在你的 Mac 上完成</h3>
+        <p>离线翻译和截图认字，用的都是 macOS 自带的能力，在本机完成，不经过网络。</p>
+      </li>
+      <li>
+        <svg class="ic" aria-hidden="true"><use href="#i-route"/></svg>
+        <h3>只去你指定的地方</h3>
+        <p>只有你自己填了 AI 接口，要翻译的文字才会从你的 Mac 直接发到那个接口，不经过我们。</p>
+      </li>
+      <li>
+        <svg class="ic" aria-hidden="true"><use href="#i-tray"/></svg>
+        <h3>记录留在本机</h3>
+        <p>设置和最近 200 条翻译记录只存在 App 自己的沙盒里，随时可以清空，删掉 App 就一起清掉。</p>
+      </li>
     </ul>
-  </section>
+    <a class="more" href="privacy.html">读完整的隐私政策 →</a>
+  </div>
+</section>
 
-  <section>
-    <h2>第一次使用</h2>
-    <p>打开慢页翻译会弹出设置窗口，概览页有四项：</p>
-    <ul>
-      <li><b>辅助功能</b>：必须打开。慢页翻译靠它模拟一次复制拿到你选中的文字，并把译文粘贴回去。</li>
-      <li><b>离线语言包</b>：建议下载，装好后断网也能翻译。</li>
-      <li><b>屏幕录制</b>：可选。打开后框选翻译时画面会先冻住，方便截视频字幕。</li>
-      <li><b>AI 精译</b>：可选。在设置的「AI 精译」里填你自己的 OpenAI 兼容接口地址和 API Key，支持 Chat Completions 和 Responses 两种接口，可以开关模型思考。</li>
-    </ul>
-  </section>
+<!-- 第一次使用 -->
+<section class="section wrap" id="help">
+  <header class="sec-head reveal">
+    <p class="folio"><span>03</span>第一次使用</p>
+    <h2><span class="nb">装好以后，</span><span class="nb">看一眼这四项</span></h2>
+    <p class="lede">第一次打开会弹出设置窗口，概览页列着四项。前两项弄好就能用了。</p>
+  </header>
+  <ol class="steps reveal">
+    <li>
+      <h3>辅助功能 <span class="need must">必须</span></h3>
+      <p>慢页翻译靠它在你按下快捷键的那一刻模拟一次复制，拿到选中的文字；你选择替换时再模拟一次粘贴。它不会记录你的键盘输入。</p>
+    </li>
+    <li>
+      <h3>离线语言包 <span class="need good">建议</span></h3>
+      <p>下载一次，之后断网也能翻译。母语在「通用 → 语言」里选。</p>
+    </li>
+    <li>
+      <h3>屏幕录制 <span class="need">可选</span></h3>
+      <p>打开以后，框选翻译时画面会先冻住，方便截视频字幕。</p>
+    </li>
+    <li>
+      <h3>AI 精译 <span class="need">可选</span></h3>
+      <p>在设置的「AI 精译」里填你自己的 OpenAI 兼容接口地址和 API Key。Chat Completions 和 Responses 两种接口都支持，模型思考可以开，也可以关。</p>
+    </li>
+  </ol>
+</section>
 
-  <section>
-    <h2>常见问题</h2>
-    <h3>按了没反应</h3>
-    <p>多半是辅助功能没开。打开「系统设置 → 隐私与安全性 → 辅助功能」，把慢页翻译打开；如果已经打开，关掉再打开一次。</p>
-    <h3>只出离线译文，没有 AI 译文</h3>
-    <p>AI 精译要你自己填接口和 Key。填好后点「测试翻译」，看接口通不通。如果提示不支持 Responses，把接口类型换回 Chat Completions。</p>
-    <h3>问 AI 时没有自动发出去</h3>
-    <p>有的网站不支持在网址里预填问题，慢页翻译会把问题放进剪贴板，点一下输入框按 <kbd>⌘</kbd><kbd>V</kbd> 就行。第一次用某个网站，要先在浏览器里登录一次。</p>
-    <h3>想用遥控器</h3>
-    <p>Siri Remote 的按键要配合第三方工具 HyperVibe 使用。在设置的「快捷键与遥控器」页点「授权 HyperVibe 配置文件夹」，选中 ~/.config/siriremote，就能在下拉菜单里给遥控器按键分配动作。</p>
-    <h3>怎么卸载</h3>
-    <p>退出慢页翻译，把它从「应用程序」拖到废纸篓。设置和翻译记录都在它自己的沙盒容器里，会一起清掉。</p>
-  </section>
+<!-- 常见问题 -->
+<section class="section wrap" id="faq">
+  <header class="sec-head reveal">
+    <p class="folio"><span>04</span>常见问题</p>
+    <h2><span class="nb">卡住的时候，</span><span class="nb">先看这里</span></h2>
+  </header>
+  <div class="faq reveal">
+    <details>
+      <summary>按了没反应</summary>
+      <p>多半是辅助功能没开。打开「系统设置 → 隐私与安全性 → 辅助功能」，把慢页翻译打开。如果已经开着，关掉再开一次。</p>
+    </details>
+    <details>
+      <summary>支持哪些语言</summary>
+      <p>20 种，可以互译：简体中文、<span lang="zh-Hant">繁體中文</span>、English、<span lang="ja">日本語</span>、<span lang="ko">한국어</span>、Français、Deutsch、Español、Italiano、Português、<span lang="ru">Русский</span>、<span lang="ar">العربية</span>、<span lang="th">ไทย</span>、Tiếng Việt、Bahasa Indonesia、Türkçe、Polski、Nederlands、<span lang="uk">Українська</span>、<span lang="hi">हिन्दी</span>。界面有简体中文、<span lang="zh-Hant">繁體中文</span>和 English。</p>
+    </details>
+    <details>
+      <summary>只出离线译文，没有 AI 译文</summary>
+      <p>AI 精译要你自己填接口和 Key。填好以后点「测试翻译」，看接口通不通。如果提示不支持 Responses，把接口类型换回 Chat Completions。</p>
+    </details>
+    <details>
+      <summary>问 AI 的时候，问题没有自动发出去</summary>
+      <p>有的网站不支持在网址里预填问题，这时慢页翻译会把问题放进剪贴板，点一下输入框，按 <kbd>⌘</kbd><kbd>V</kbd> 就行。第一次用某个网站，要先在浏览器里登录一次。</p>
+    </details>
+    <details>
+      <summary>想用遥控器</summary>
+      <p>Siri Remote 的按键要配合第三方工具 HyperVibe 使用。在设置的「快捷键与遥控器」页点「授权 HyperVibe 配置文件夹」，选中 ~/.config/siriremote，之后就能在下拉菜单里给遥控器按键分配动作。</p>
+    </details>
+    <details>
+      <summary>怎么卸载</summary>
+      <p>退出慢页翻译，把它从「应用程序」拖到废纸篓。设置和翻译记录都在它自己的沙盒容器里，会一起清掉。</p>
+    </details>
+  </div>
+  <p class="feedback reveal">遇到别的问题，或者有想法，请在 <a href="https://github.com/ViffyGwaanl/shunyi/issues">GitHub Issues</a> 留言，写上 macOS 版本、慢页翻译版本和操作步骤。</p>
+</section>
 
-  <section>
-    <h2>反馈</h2>
-    <p>遇到问题或者有想法，请在 <a href="https://github.com/ViffyGwaanl/shunyi/issues">GitHub Issues</a> 留言，写上 macOS 版本、慢页翻译版本和操作步骤。</p>
-  </section>
+<!-- 结尾 -->
+<section class="closing wrap reveal">
+  <img src="icon.png" alt="慢页翻译图标" width="84" height="84">
+  <h2><span class="nb">下一句读不懂的，</span><span class="nb">按一下试试</span></h2>
+  <div class="cta">
+    <a class="btn primary" data-link="appStore" aria-disabled="true"><small data-live="免费下载">即将上架</small> <b>Mac App Store</b></a>
+    <a class="btn" data-link="dmg" aria-disabled="true"><small data-live="直接下载 · 已公证">即将提供</small> <b>下载 dmg</b></a>
+  </div>
+  <p class="meta">需要 macOS 26 或更新版本</p>
+</section>
 
-  <section id="en">
-    <h2>English</h2>
-    <p>Page &amp; Pause Translate (慢页翻译) is a menu-bar translator for macOS. Select text and press <kbd>⌃</kbd><kbd>⌥</kbd><kbd>T</kbd> to see a translation next to it: an on-device translation first, then an optional AI translation through an OpenAI-compatible endpoint you configure yourself (Chat Completions or Responses, with a switch for model thinking). With nothing selected it translates the clipboard, including text recognized on-device from a copied screenshot. <kbd>⌃</kbd><kbd>⌥</kbd><kbd>S</kbd> translates a region of the screen.</p>
-    <p>It needs the Accessibility permission to copy your selection and paste translations. Screen Recording is optional. Support and feedback: <a href="https://github.com/ViffyGwaanl/shunyi/issues">GitHub Issues</a>. See the <a href="privacy.html">privacy policy</a>.</p>
-  </section>
-
-  <footer>© 2026 慢页 Page &amp; Pause</footer>
 </main>
+
+<footer class="wrap"><div class="foot">
+  <span>© 2026 慢页 Page &amp; Pause</span>
+  <nav aria-label="页脚">
+    <a href="privacy.html">隐私政策</a>
+    <a href="https://github.com/ViffyGwaanl/shunyi/issues">反馈</a>
+    <a href="zh-hant.html" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a>
+    <a href="en.html" lang="en" hreflang="en">English</a>
+  </nav>
+</div></footer>
 </body>
 </html>

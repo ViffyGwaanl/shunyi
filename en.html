@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page &amp; Pause Translate · Select a line. Press once. Understood.</title>
+<meta name="description" content="Page &amp; Pause Translate is a menu-bar translator for Mac. Select a sentence, press a shortcut, and the translation appears right beside it: on-device first, then an optional AI version through your own endpoint. 20 languages, no account, no analytics.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="慢页 Page &amp; Pause">
+<meta property="og:title" content="Page &amp; Pause Translate · Select a line. Press once. Understood.">
+<meta property="og:description" content="A menu-bar translator for Mac. The translation appears beside the sentence you're reading: on-device first, AI a second later.">
+<meta property="og:image" content="https://viffygwaanl.github.io/shunyi/og-en.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F7F2E8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14161B" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="icon.png">
+<link rel="alternate" hreflang="zh-Hans" href="./">
+<link rel="alternate" hreflang="zh-Hant" href="zh-hant.html">
+<link rel="alternate" hreflang="en" href="en.html">
+<link rel="alternate" hreflang="x-default" href="./">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js')</script>
+<script src="site.js" defer></script>
+<noscript><style>.demo .demo-card{opacity:1;transform:none}.demo .sel{background-size:100% 100%}.demo .b-local,.demo .t-local{opacity:0}.demo .b-ai,.demo .t-ai{opacity:1}.js .reveal{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-cursor" viewBox="0 0 24 24"><path d="M8 4c2.2 0 4 1 4 3v10c0 2-1.8 3-4 3M16 4c-2.2 0-4 1-4 3M12 17c0 2 1.8 3 4 3M9.5 12h5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M10 3l1.9 5.1L17 10l-5.1 1.9L10 17l-1.9-5.1L3 10l5.1-1.9zM18.5 14l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M9 4h6l-1 6 3 3.5H7l3-3.5zM12 13.5V20"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8" width="11" height="13" rx="2.2"/><path d="M5 16V5.2A2.2 2.2 0 0 1 7.2 3H15"/></symbol>
+  <symbol id="i-speaker" viewBox="0 0 24 24"><path d="M4 9.5v5h3.4L12 18V6L7.4 9.5zM15.5 9.3a3.8 3.8 0 0 1 0 5.4M18.2 6.8a7.4 7.4 0 0 1 0 10.4"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9.5L12 5l10 4.5-10 4.5zM6 11.6v4.2c1.6 1.5 3.6 2.2 6 2.2s4.4-.7 6-2.2v-4.2M22 9.5V15"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4.2 4.5h9.6A2.2 2.2 0 0 1 16 6.7v4.6a2.2 2.2 0 0 1-2.2 2.2H9l-3.4 2.9v-2.9H4.2A2.2 2.2 0 0 1 2 11.3V6.7a2.2 2.2 0 0 1 2.2-2.2zM18.6 9.5h1.2a2.2 2.2 0 0 1 2.2 2.2V16a2.2 2.2 0 0 1-2.2 2.2h-.6v2.6L16 18.2h-3.2"/></symbol>
+  <symbol id="i-viewfinder" viewBox="0 0 24 24"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2M8 10h8M8 14h5"/></symbol>
+  <symbol id="i-region" viewBox="0 0 24 24"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/></symbol>
+  <symbol id="i-laptop" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="10" rx="1.6"/><path d="M2.5 19h19"/></symbol>
+  <symbol id="i-route" viewBox="0 0 24 24"><path d="M3 12h12M11 7.5l4.5 4.5-4.5 4.5M20.5 5v14"/></symbol>
+  <symbol id="i-tray" viewBox="0 0 24 24"><path d="M3.5 14l2.3-8.5h12.4l2.3 8.5M3.5 14v3.8A2.2 2.2 0 0 0 5.7 20h12.6a2.2 2.2 0 0 0 2.2-2.2V14M3.5 14h5a3.5 3.5 0 0 0 7 0h5"/></symbol>
+</svg>
+
+<header class="top wrap">
+  <a class="brand" href="en.html" aria-label="Page &amp; Pause Translate, home"><img src="icon.png" alt="" width="30" height="30"><span>Page &amp; Pause Translate</span></a>
+  <nav aria-label="Page navigation">
+    <a class="opt" href="#features">Features</a>
+    <a class="opt" href="#privacy">Privacy</a>
+    <a class="opt" href="#help">Help</a>
+    <span class="langs">
+      <a href="./" lang="zh-Hans" hreflang="zh-Hans">简体</a>
+      <a href="zh-hant.html" lang="zh-Hant" hreflang="zh-Hant">繁體</a>
+      <a href="en.html" aria-current="page">English</a>
+    </span>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- Hero -->
+<section class="hero wrap">
+  <div class="hero-text">
+    <p class="eyebrow"><span>慢页 Page &amp; Pause</span><i></i><span>A menu-bar translator for Mac</span></p>
+    <h1><span class="beat">Select a line.</span><span class="beat">Press once.</span><span class="beat">Understood.</span></h1>
+    <p class="lede">Reading in another language and stuck on a sentence? Select it, press a shortcut, and the translation appears right beside it. Your eyes never leave the page.</p>
+    <div class="cta">
+      <a class="btn primary" data-link="appStore" aria-disabled="true"><small data-live="Free download">Coming soon</small> <b>Mac App Store</b></a>
+      <a class="btn" data-link="dmg" aria-disabled="true"><small data-live="Direct download · notarized">Coming soon</small> <b>Download dmg</b></a>
+    </div>
+    <p class="meta"><span>Free</span><span>Requires macOS 26 or later</span><span>No account, no analytics</span></p>
+    <p class="meta note"><span>20 languages</span><span>Interface in English, <span lang="zh-Hans">简体中文</span> and <span lang="zh-Hant">繁體中文</span></span></p>
+  </div>
+
+  <figure class="demo" id="demo" aria-label="Demo: a sentence is selected in a French article, Control-Option-T is pressed, and a translation card appears under the sentence. The on-device English translation arrives first and is replaced by the AI version about a second later.">
+    <div class="stage" aria-hidden="true">
+      <div class="sheet">
+        <div class="sheet-bar"><i></i><i></i><i></i><span lang="fr">Pourquoi les petits outils gagnent</span></div>
+        <div class="sheet-body" lang="fr">
+          <p class="kicker">ESSAI</p>
+          <p class="title">Pourquoi les petits outils gagnent</p>
+          <p class="sub">Une courte note sur la vitesse et l’habitude</p>
+          <p class="t"><span class="sel" id="sel">Chaque grand produit commence par une petite expérience qui refuse de mourir.</span> Il règle un problème agaçant, et il le règle si vite qu’on finit par oublier que le problème a existé.</p>
+          <p class="t">La vitesse n’est pas une fonction qu’on ajoute à la fin. C’est une promesse que l’on tient à chaque interaction.</p>
+        </div>
+      </div>
+
+      <div class="card demo-card" id="card">
+        <div class="card-head">
+          <span class="chip"><svg class="ic"><use href="#i-cursor"/></svg>Selection</span>
+          <span class="pair">French<svg class="ic"><use href="#i-arrow"/></svg>English</span>
+          <span class="grow"></span>
+          <span class="badge">
+            <span class="b-local"><svg class="ic"><use href="#i-cpu"/></svg><span class="lb">On-device&nbsp;</span>0.06s<em>· AI refining</em><i class="spin"></i></span>
+            <span class="b-ai"><svg class="ic solid"><use href="#i-sparkles"/></svg>AI 1.1s</span>
+          </span>
+          <svg class="ic pin"><use href="#i-pin"/></svg>
+        </div>
+        <div class="card-body">
+          <p class="src" lang="fr">Chaque grand produit commence par une petite expérience qui refuse de mourir.</p>
+          <div class="out">
+            <p class="t-local">Every great product begins with a small experience that refuses to die.</p>
+            <p class="t-ai">Every great product starts as a small experiment that refuses to die.</p>
+          </div>
+        </div>
+        <div class="card-foot">
+          <span class="pill"><svg class="ic"><use href="#i-copy"/></svg>Copy<span class="k">⌘C</span></span>
+          <span class="pill"><svg class="ic"><use href="#i-speaker"/></svg>Speak<span class="k">Space</span></span>
+          <span class="pill"><svg class="ic"><use href="#i-cap"/></svg>Explain<span class="k">⇥</span></span>
+          <span class="pill"><svg class="ic"><use href="#i-chat"/></svg>Ask AI<span class="k">A</span></span>
+          <span class="esc">esc</span>
+        </div>
+      </div>
+    </div>
+    <figcaption class="keys"><span><kbd>⌃</kbd><kbd>⌥</kbd><kbd>T</kbd></span><span>translates the selection; the shortcut can be changed in Settings</span></figcaption>
+  </figure>
+</section>
+
+<div class="wrap"><div class="wave" aria-hidden="true"></div></div>
+
+<!-- Features -->
+<section class="section wrap" id="features">
+  <header class="sec-head reveal">
+    <p class="folio"><span>01</span>Features</p>
+    <h2>One card, eight things</h2>
+    <p class="lede">Each one is a single keypress. No switching windows, no opening another app. It works between 20 languages; the examples here go into English.</p>
+  </header>
+
+  <div class="features">
+    <article class="feature wide reveal">
+      <div>
+        <p class="f-no">01</p>
+        <h3>Instant first, polished a second later</h3>
+        <p class="body">About 0.06 seconds after you press, the offline translation built into macOS is already there, with or without a network. If you've added your own AI endpoint, a smoother, more natural version takes its place about a second later.</p>
+        <p class="tags"><span><kbd>⌃</kbd><kbd>⌥</kbd><kbd>T</kbd></span><span class="tag">Works offline</span><span class="tag">AI is optional</span></p>
+      </div>
+      <div class="plate" aria-hidden="true">
+        <div class="two">
+          <div class="two-row"><span class="badge"><svg class="ic"><use href="#i-cpu"/></svg>On-device 0.06s</span><p>Every great product begins with a small experience that refuses to die.</p></div>
+          <div class="two-gap"><i></i><span>about a second later</span></div>
+          <div class="two-row final"><span class="badge"><svg class="ic solid"><use href="#i-sparkles"/></svg>AI 1.1s</span><p>Every great product starts as a small experiment that refuses to die.</p></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="feature reveal">
+      <div class="plate" aria-hidden="true">
+        <div class="clip">
+          <div class="shot" lang="de"><b>Das Museum schließt am Freitag bereits um 15 Uhr.</b><i></i><i></i><span class="vf"></span></div>
+          <svg class="ic flow"><use href="#i-arrow"/></svg>
+          <div class="card mini">
+            <div class="card-head"><span class="chip"><svg class="ic"><use href="#i-viewfinder"/></svg>Screenshot · just now</span><span class="pair">German<svg class="ic"><use href="#i-arrow"/></svg>English</span></div>
+            <div class="card-body"><p class="out">The museum closes early on Friday, at 3 p.m.</p></div>
+          </div>
+        </div>
+      </div>
+      <p class="f-no">02</p>
+      <h3>Nothing selected? It translates what you just copied</h3>
+      <p class="body">With nothing selected, the same shortcut translates the text on your clipboard. If you copied a screenshot, the text in it is recognized on your Mac first. The image is never uploaded.</p>
+    </article>
+
+    <article class="feature reveal">
+      <div class="plate" aria-hidden="true">
+        <div class="region">
+          <div class="video"><span class="frozen"><i></i>Frame frozen</span><span class="subtitle" lang="ja">自分で光をつくる生きものもいる。</span></div>
+          <div class="card line"><span class="chip"><svg class="ic"><use href="#i-region"/></svg>Region</span><span>Some creatures make their own light.</span></div>
+        </div>
+      </div>
+      <p class="f-no">03</p>
+      <h3>Freeze the video, then frame the subtitle</h3>
+      <p class="body">Subtitle gone before you finished reading? Press the shortcut and the screen freezes. Drag a box around the line and let go. It also works for text you can't select and for text inside images.</p>
+      <p class="tags"><span><kbd>⌃</kbd><kbd>⌥</kbd><kbd>S</kbd></span></p>
+    </article>
+
+    <article class="feature reveal">
+      <div class="plate" aria-hidden="true">
+        <div class="card mini">
+          <div class="dict-head"><b lang="fr">dépaysement</b><span class="say"><span class="ipa">/de.pe.iz.mɑ̃/</span><svg class="ic solid"><use href="#i-speaker"/></svg></span></div>
+          <div class="dict">
+            <p class="main">change of scenery</p>
+            <p class="sense"><span class="pos">n.</span><span>change of scenery; the feeling of being somewhere unfamiliar</span></p>
+            <p class="ex"><i lang="fr">Ce voyage m’a offert un vrai dépaysement.</i><span>That trip gave me a real change of scenery.</span></p>
+          </div>
+        </div>
+      </div>
+      <p class="f-no">04</p>
+      <h3>Select one word and the card becomes a dictionary</h3>
+      <p class="body">Pronunciation, part of speech, meanings and an example sentence, neatly laid out. Press Space to hear it.</p>
+      <p class="tags"><span class="tag">Needs your AI endpoint</span></p>
+    </article>
+
+    <article class="feature reveal">
+      <div class="plate" aria-hidden="true">
+        <div class="card mini">
+          <div class="explain">
+            <p class="ex-head"><svg class="ic"><use href="#i-cap"/></svg>Explain</p>
+            <p><b>Meaning</b>: Good ideas are rarely planned; they show up when you step out of your routine.</p>
+            <p><b>Key points</b>:</p>
+            <ul>
+              <li><b lang="fr">naissent d’un simple dépaysement</b> → “are born from a simple change of scenery”</li>
+              <li><b lang="fr">au beau milieu de</b> → “right in the middle of”; <i lang="fr">beau</i> adds emphasis, not beauty</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="f-no">05</p>
+      <h3>Press Tab to have the sentence explained</h3>
+      <p class="body">What it really means, the tone it's written in, and the tricky words and grammar, one by one. Good for long sentences, and for learning a language.</p>
+      <p class="tags"><span><kbd>⇥</kbd></span><span class="tag">Needs your AI endpoint</span></p>
+    </article>
+
+    <article class="feature reveal">
+      <div class="plate" aria-hidden="true">
+        <div class="replace">
+          <div class="field"><span class="hl">We’ll ship the new version this weekend.</span></div>
+          <p class="do"><svg class="ic"><use href="#i-arrow"/></svg><span><kbd>⌃</kbd><kbd>⌥</kbd><kbd>T</kbd></span><span>then</span><kbd>↩</kbd></p>
+          <div class="field" lang="es">Lanzaremos la nueva versión este fin de semana.<i class="caret"></i></div>
+        </div>
+      </div>
+      <p class="f-no">06</p>
+      <h3>Write in your own language, press Return to swap it</h3>
+      <p class="body">Replying to someone in another language? Write it in your own language, select it, press the shortcut, then Return. The translation replaces what you selected.</p>
+      <p class="tags"><span><kbd>↩</kbd></span></p>
+    </article>
+
+    <article class="feature reveal">
+      <div class="plate" aria-hidden="true">
+        <div class="browser">
+          <div class="browser-bar"><i></i><i></i><i></i><span>the AI site you chose</span></div>
+          <div class="chat">
+            <p class="me">Translate into English: <span lang="fr">Chaque grand produit commence par une petite expérience qui refuse de mourir.</span></p>
+            <p class="bot"><i></i><i></i></p>
+            <p class="ask">Ask a follow-up…</p>
+          </div>
+        </div>
+      </div>
+      <p class="f-no">07</p>
+      <h3>Want to keep asking? Press A</h3>
+      <p class="body">Page &amp; Pause Translate opens the AI website you chose in your browser and brings the passage with it, so you can ask follow-up questions there. It uses your own account on that site.</p>
+      <p class="tags"><span><kbd>A</kbd></span></p>
+    </article>
+
+    <article class="feature wide flip reveal">
+      <div>
+        <p class="f-no">08</p>
+        <h3>From the sofa, with a Siri Remote</h3>
+        <p class="body">With the third-party tool HyperVibe, the buttons on a Siri Remote can start a translation, a region capture or Ask AI. You decide which button does what. Handy when your Mac is hooked up to the TV.</p>
+        <p class="tags"><span class="tag">Needs HyperVibe</span></p>
+      </div>
+      <div class="plate" aria-hidden="true">
+        <div class="remote-wrap">
+          <div class="remote"><i class="power"></i><i class="pad"></i><i class="b b1"></i><i class="b b2"></i><i class="b b3"></i><i class="vol"></i><i class="b b4"></i></div>
+          <ul class="remote-map">
+            <li><b>Power: click</b><span>Translate</span></li>
+            <li><b>Power: hold</b><span>Ask AI</span></li>
+            <li><b>TV: double-click</b><span>Translate a region</span></li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <ul class="legend reveal" aria-label="Keys on the card">
+    <li><strong>KEYS ON THE CARD</strong></li>
+    <li><span><kbd>⌘</kbd><kbd>C</kbd></span>Copy</li>
+    <li><kbd>Space</kbd>Speak</li>
+    <li><kbd>⇥</kbd>Explain</li>
+    <li><kbd>↩</kbd>Replace</li>
+    <li><kbd>A</kbd>Ask AI</li>
+    <li><kbd>P</kbd>Pin the card</li>
+    <li><kbd>esc</kbd>Close</li>
+  </ul>
+</section>
+
+<!-- Privacy -->
+<section class="sea" id="privacy">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="folio"><span>02</span>Privacy</p>
+      <h2><span class="nb">No account.</span> <span class="nb">No server.</span> <span class="nb">No analytics.</span></h2>
+      <p class="lede">The developer never receives anything you translate, or any data about you.</p>
+    </header>
+    <ul class="thirds reveal">
+      <li>
+        <svg class="ic" aria-hidden="true"><use href="#i-laptop"/></svg>
+        <h3>It happens on your Mac</h3>
+        <p>Offline translation and text recognition use what's built into macOS. They run on your Mac and never touch the network.</p>
+      </li>
+      <li>
+        <svg class="ic" aria-hidden="true"><use href="#i-route"/></svg>
+        <h3>It only goes where you send it</h3>
+        <p>Only if you add your own AI endpoint does the text you translate leave your Mac, and it goes straight to that endpoint, not through us.</p>
+      </li>
+      <li>
+        <svg class="ic" aria-hidden="true"><use href="#i-tray"/></svg>
+        <h3>History stays local</h3>
+        <p>Settings and your last 200 translations live in the app's own sandbox. Clear them any time; deleting the app removes them too.</p>
+      </li>
+    </ul>
+    <a class="more" href="privacy.html#en">Read the full privacy policy →</a>
+  </div>
+</section>
+
+<!-- Getting started -->
+<section class="section wrap" id="help">
+  <header class="sec-head reveal">
+    <p class="folio"><span>03</span>Getting started</p>
+    <h2>Four things to check after installing</h2>
+    <p class="lede">A settings window opens the first time you launch the app. Its Overview page lists four items; once the first two are done, you're ready.</p>
+  </header>
+  <ol class="steps reveal">
+    <li>
+      <h3>Accessibility <span class="need must">Required</span></h3>
+      <p>Used to copy your selection at the moment you press the shortcut, and to paste the translation when you choose Replace. It does not log what you type.</p>
+    </li>
+    <li>
+      <h3>Offline language pack <span class="need good">Recommended</span></h3>
+      <p>Download it once and translation works without a network. Pick your own language under General → Languages.</p>
+    </li>
+    <li>
+      <h3>Screen Recording <span class="need">Optional</span></h3>
+      <p>With it on, the screen freezes while you frame a region, which makes video subtitles easy to catch.</p>
+    </li>
+    <li>
+      <h3>AI translation <span class="need">Optional</span></h3>
+      <p>In Settings, open AI Translation and enter your own OpenAI-compatible endpoint and API key. Both Chat Completions and Responses are supported, and model thinking can be switched on or off.</p>
+    </li>
+  </ol>
+</section>
+
+<!-- FAQ -->
+<section class="section wrap" id="faq">
+  <header class="sec-head reveal">
+    <p class="folio"><span>04</span>Questions</p>
+    <h2>Stuck? Start here</h2>
+  </header>
+  <div class="faq reveal">
+    <details>
+      <summary>Nothing happens when I press the shortcut</summary>
+      <p>Accessibility is probably off. Open System Settings → Privacy &amp; Security → Accessibility and turn on Page &amp; Pause Translate. If it's already on, turn it off and on again.</p>
+    </details>
+    <details>
+      <summary>Which languages does it support?</summary>
+      <p>Twenty, in any direction: English, <span lang="zh-Hans">简体中文</span>, <span lang="zh-Hant">繁體中文</span>, <span lang="ja">日本語</span>, <span lang="ko">한국어</span>, Français, Deutsch, Español, Italiano, Português, <span lang="ru">Русский</span>, <span lang="ar">العربية</span>, <span lang="th">ไทย</span>, Tiếng Việt, Bahasa Indonesia, Türkçe, Polski, Nederlands, <span lang="uk">Українська</span> and <span lang="hi">हिन्दी</span>. The interface itself comes in English, <span lang="zh-Hans">简体中文</span> and <span lang="zh-Hant">繁體中文</span>.</p>
+    </details>
+    <details>
+      <summary>I only get the offline translation, never the AI one</summary>
+      <p>AI translation needs your own endpoint and key. After entering them under AI Translation, click Test Translation to check the connection. If it says Responses isn't supported, switch the API type back to Chat Completions.</p>
+    </details>
+    <details>
+      <summary>Ask AI opened the site but didn't send my question</summary>
+      <p>Some sites don't accept a pre-filled question in the URL. In that case the question is put on your clipboard: click the input box and press <kbd>⌘</kbd><kbd>V</kbd>. The first time you use a site, sign in to it in your browser first.</p>
+    </details>
+    <details>
+      <summary>I'd like to use a Siri Remote</summary>
+      <p>Siri Remote buttons work through the third-party tool HyperVibe. In Settings, open Shortcuts, click “Allow Access to the HyperVibe Folder…” and choose ~/.config/siriremote. You can then assign actions to remote buttons from the menus.</p>
+    </details>
+    <details>
+      <summary>How do I uninstall it?</summary>
+      <p>Quit the app and drag it from Applications to the Trash. Its settings and history live in its own sandbox container and are removed with it.</p>
+    </details>
+  </div>
+  <p class="feedback reveal">Something else, or an idea? Leave a note on <a href="https://github.com/ViffyGwaanl/shunyi/issues">GitHub Issues</a> with your macOS version, the app version and the steps to reproduce.</p>
+</section>
+
+<!-- Closing -->
+<section class="closing wrap reveal">
+  <img src="icon.png" alt="Page &amp; Pause Translate icon" width="84" height="84">
+  <h2>Next time a sentence stops you, press once</h2>
+  <div class="cta">
+    <a class="btn primary" data-link="appStore" aria-disabled="true"><small data-live="Free download">Coming soon</small> <b>Mac App Store</b></a>
+    <a class="btn" data-link="dmg" aria-disabled="true"><small data-live="Direct download · notarized">Coming soon</small> <b>Download dmg</b></a>
+  </div>
+  <p class="meta">Requires macOS 26 or later</p>
+</section>
+
+</main>
+
+<footer class="wrap"><div class="foot">
+  <span>© 2026 慢页 Page &amp; Pause</span>
+  <nav aria-label="Footer">
+    <a href="privacy.html#en">Privacy policy</a>
+    <a href="https://github.com/ViffyGwaanl/shunyi/issues">Feedback</a>
+    <a href="./" lang="zh-Hans" hreflang="zh-Hans">简体中文</a>
+    <a href="zh-hant.html" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a>
+  </nav>
+</div></footer>
+</body>
+</html>
